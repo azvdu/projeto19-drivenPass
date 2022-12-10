@@ -1,16 +1,15 @@
-import httpStatus from "http-status";
 import bcrypt from "bcrypt";
 
-import { CreateAuthType } from "../../controllers/authController.js";
-import authReposity from "../../repositories/authRepository/index.js";
+import { CreateUserType } from "../../controllers/userController.js";
+import authReposity from "../../repositories/userRepository/index.js";
 
-async function findUser(user: CreateAuthType){
+async function findUser(user: CreateUserType){
     const findUserByEmail = await authReposity.findUserByEmail(user)
     
     return findUserByEmail;
 }
 
-async function createUser(user: CreateAuthType){
+async function createUser(user: CreateUserType){
     const SALT = Number(process.env.SALT);
     const passwordCrypt = bcrypt.hashSync(user.password, SALT);
 

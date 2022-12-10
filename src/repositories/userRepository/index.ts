@@ -1,8 +1,8 @@
 import { prisma } from "../../config/db.js";
-import { CreateAuthType } from "../../controllers/authController.js";
+import { CreateUserType } from "../../controllers/userController.js";
 
 
-async function findUserByEmail({ email }: CreateAuthType){
+async function findUserByEmail({ email }: CreateUserType){
     return prisma.users.findFirst({
         where: {
             email: email
@@ -10,7 +10,7 @@ async function findUserByEmail({ email }: CreateAuthType){
     })
 }
 
-async function createUser({ email, password }: CreateAuthType){
+async function createUser({ email, password }: CreateUserType){
     return prisma.users.create({
         data: {
             email,

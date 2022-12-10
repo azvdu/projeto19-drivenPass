@@ -4,10 +4,10 @@ import { Users } from "@prisma/client";
 import { faker } from "@faker-js/faker";
 import httpStatus from "http-status";
 import supertest from "supertest";
-import { createUser, userFake } from "../factories/authFactory.js";
+import { createUser, userFake } from "../factories/userFactory.js";
 import { cleanDb } from "../helphers.js";
 
-export type CreayeAuthType = Omit<Users, "id" | "createdAt" | "updatedAt">
+export type CreateUserType = Omit<Users, "id" | "createdAt" | "updatedAt">
 
 beforeAll(async () => {
     await init();
@@ -21,7 +21,7 @@ const server = supertest(app)
 
 describe("POST /sign-up", () => {
     it("should return status 422 when wrong data is passed", async () => {
-        const user: CreayeAuthType = {
+        const user: CreateUserType = {
             email: faker.internet.email(),
             password: faker.internet.password(5)
         };
@@ -32,7 +32,7 @@ describe("POST /sign-up", () => {
     });
     it("should return status 409 when email already exists", async () => {
         const { email, password } = await createUser();
-        const user: CreayeAuthType = {
+        const user: CreateUserType = {
             email,
             password: faker.internet.password(10)
         };

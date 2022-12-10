@@ -1,7 +1,7 @@
 import * as jwt from "jsonwebtoken";
 import { Users } from "@prisma/client";
 
-import { createUser } from "./factories/authFactory.js";
+import { createUser } from "./factories/userFactory.js";
 import { prisma } from "../src/config/db.js";
 
 export async function cleanDb(){

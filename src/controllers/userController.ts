@@ -1,14 +1,13 @@
 import { Request, Response } from "express";
 import httpStatus from "http-status";
-import bcrypt from "bcrypt";
 
 import { Users } from "@prisma/client";
-import authServices from "../services/authServices/index.js";
+import authServices from "../services/userServices/index.js";
 
-export type CreateAuthType = Omit<Users, "id" | "createdAt" | "updatedAt" >
+export type CreateUserType = Omit<Users, "id" | "createdAt" | "updatedAt" >
 
 export async function signUp(req: Request, res: Response){
-    const user: CreateAuthType = req.body
+    const user: CreateUserType = req.body
     
     if(!user.email || !user.password){
         throw{type: httpStatus.BAD_REQUEST, message: "email or password not filled in"}

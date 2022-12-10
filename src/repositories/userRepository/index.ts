@@ -5,7 +5,7 @@ import { CreateUserType } from "../../controllers/userController.js";
 async function findUserByEmail({ email }: CreateUserType){
     return prisma.users.findFirst({
         where: {
-            email: email
+            email
         }
     })
 }
@@ -19,9 +19,9 @@ async function createUser({ email, password }: CreateUserType){
     })
 }
 
-const authReposity = {
+const userReposity = {
     findUserByEmail,
     createUser
 }
 
-export default authReposity;
+export default userReposity;

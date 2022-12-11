@@ -1,4 +1,4 @@
-import app, { init } from "../../src/app.js";
+import app, { init, close } from "../../src/app.js";
 import { prisma } from "../../src/config/db.js";
 import { Users } from "@prisma/client";
 import { faker } from "@faker-js/faker";
@@ -13,8 +13,12 @@ beforeAll(async () => {
     await init();
 })
 
-beforeEach(async () => {
-    await cleanDb();
+// beforeEach(async () => {
+//     await cleanDb();
+// })
+
+afterAll(async () => {
+    await close()
 })
 
 const server = supertest(app)

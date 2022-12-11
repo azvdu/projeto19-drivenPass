@@ -1,9 +1,9 @@
 import express, {json, Express} from "express";
 import cors from "cors";
-import "express-async-errors"
+import "express-async-errors";
 import dotenv from "dotenv";
 
-import { connectDb } from "./config/db.js";
+import { connectDb, disconnectDB } from "./config/db.js";
 import router from "./routers/index.js"
 import { errorHandlerMiddleware } from "./middlewares/errorHandlerMiddlewares.js";
 
@@ -21,5 +21,11 @@ export function init(): Promise<Express> {
     connectDb();
     return Promise.resolve(app);
 }
+export function close(): Promise<Express> {
+    disconnectDB();
+    return Promise.resolve(app);
+}
+
+
 
 export default app;

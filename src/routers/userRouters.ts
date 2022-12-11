@@ -1,6 +1,6 @@
 import { Router } from "express";
 
-import { signUp } from "../controllers/index.js";
+import { signUp } from "../controllers/userController.js";
 import { validationSignUp } from "../middlewares/userMiddleware.js";
 
 

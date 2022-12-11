@@ -2,7 +2,7 @@ import supertest from "supertest";
 import httpStatus from "http-status";
 import { faker } from "@faker-js/faker";
 import { cleanDb } from "../helphers.js";
-import app, { init } from "../../src/app.js";
+import app, { init, close } from "../../src/app.js";
 import { createUser } from "../factories/userFactory.js";
 import { CreateUserType } from "../integration/user.test.js";
 
@@ -10,9 +10,13 @@ beforeAll(async () => {
     await init();
 });
 
-beforeEach(async () => {
-    await cleanDb();
-});
+// beforeEach(async () => {
+//     await cleanDb();
+// });
+
+afterAll(async () => {
+    await close()
+})
 
 const server = supertest(app);
 

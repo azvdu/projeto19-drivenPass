@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1670793440166" clover="3.2.0">
-  <project timestamp="1670793440167" name="All files">
-    <metrics statements="212" coveredstatements="119" conditionals="53" coveredconditionals="0" methods="35" coveredmethods="3" elements="300" coveredelements="122" complexity="0" loc="212" ncloc="212" packages="14" files="28" classes="28"/>
+<coverage generated="1670798188813" clover="3.2.0">
+  <project timestamp="1670798188813" name="All files">
+    <metrics statements="214" coveredstatements="181" conditionals="53" coveredconditionals="19" methods="36" coveredmethods="24" elements="303" coveredelements="224" complexity="0" loc="214" ncloc="214" packages="14" files="27" classes="27"/>
     <package name="src">
-      <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+      <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="app.ts" path="/home/gabriel/Área de Trabalho/Driven Projects - Back/projeto19-drivenpass/src/app.ts">
-        <metrics statements="14" coveredstatements="14" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
+        <metrics statements="17" coveredstatements="17" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="3" type="stmt"/>
         <line num="2" count="3" type="stmt"/>
         <line num="3" count="3" type="stmt"/>
@@ -19,30 +19,33 @@
         <line num="20" count="3" type="stmt"/>
         <line num="21" count="3" type="stmt"/>
         <line num="22" count="3" type="stmt"/>
+        <line num="24" count="3" type="stmt"/>
         <line num="25" count="3" type="stmt"/>
+        <line num="26" count="3" type="stmt"/>
+        <line num="31" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.config">
-      <metrics statements="5" coveredstatements="4" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
       <file name="db.ts" path="/home/gabriel/Área de Trabalho/Driven Projects - Back/projeto19-drivenpass/src/config/db.ts">
-        <metrics statements="5" coveredstatements="4" conditionals="4" coveredconditionals="0" methods="2" coveredmethods="1"/>
+        <metrics statements="5" coveredstatements="5" conditionals="4" coveredconditionals="3" methods="2" coveredmethods="2"/>
         <line num="1" count="3" type="stmt"/>
         <line num="5" count="3" type="stmt"/>
         <line num="6" count="3" type="stmt"/>
         <line num="9" count="3" type="stmt"/>
-        <line num="10" count="0" type="cond" truecount="0" falsecount="4"/>
+        <line num="10" count="3" type="cond" truecount="3" falsecount="1"/>
       </file>
     </package>
     <package name="src.controllers">
-      <metrics statements="29" coveredstatements="11" conditionals="10" coveredconditionals="0" methods="4" coveredmethods="0"/>
+      <metrics statements="28" coveredstatements="19" conditionals="10" coveredconditionals="1" methods="4" coveredmethods="2"/>
       <file name="authController.ts" path="/home/gabriel/Área de Trabalho/Driven Projects - Back/projeto19-drivenpass/src/controllers/authController.ts">
-        <metrics statements="6" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="2" count="3" type="stmt"/>
         <line num="4" count="3" type="stmt"/>
         <line num="7" count="3" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
       </file>
       <file name="credentialController.ts" path="/home/gabriel/Área de Trabalho/Driven Projects - Back/projeto19-drivenpass/src/controllers/credentialController.ts">
         <metrics statements="13" coveredstatements="4" conditionals="9" coveredconditionals="0" methods="2" coveredmethods="0"/>
@@ -60,66 +63,62 @@
         <line num="23" count="0" type="stmt"/>
         <line num="25" count="0" type="cond" truecount="0" falsecount="1"/>
       </file>
-      <file name="index.ts" path="/home/gabriel/Área de Trabalho/Driven Projects - Back/projeto19-drivenpass/src/controllers/index.ts">
-        <metrics statements="1" coveredstatements="1" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0"/>
-        <line num="1" count="3" type="stmt"/>
-      </file>
       <file name="userController.ts" path="/home/gabriel/Área de Trabalho/Driven Projects - Back/projeto19-drivenpass/src/controllers/userController.ts">
-        <metrics statements="9" coveredstatements="3" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="9" coveredstatements="9" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="2" count="3" type="stmt"/>
         <line num="5" count="3" type="stmt"/>
         <line num="9" count="3" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="stmt"/>
-        <line num="13" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="19" count="0" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="2" type="stmt"/>
+        <line num="13" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="19" count="1" type="stmt"/>
       </file>
     </package>
     <package name="src.middlewares">
-      <metrics statements="30" coveredstatements="11" conditionals="4" coveredconditionals="0" methods="7" coveredmethods="0"/>
+      <metrics statements="30" coveredstatements="28" conditionals="4" coveredconditionals="4" methods="7" coveredmethods="7"/>
       <file name="authMiddlewares.ts" path="/home/gabriel/Área de Trabalho/Driven Projects - Back/projeto19-drivenpass/src/middlewares/authMiddlewares.ts">
-        <metrics statements="8" coveredstatements="3" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <metrics statements="8" coveredstatements="8" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
         <line num="2" count="3" type="stmt"/>
         <line num="3" count="3" type="stmt"/>
         <line num="5" count="3" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="9" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="7" count="5" type="stmt"/>
+        <line num="9" count="5" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="12" count="3" type="stmt"/>
       </file>
       <file name="credentialMiddewares.ts" path="/home/gabriel/Área de Trabalho/Driven Projects - Back/projeto19-drivenpass/src/middlewares/credentialMiddewares.ts">
-        <metrics statements="8" coveredstatements="3" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <metrics statements="8" coveredstatements="7" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
         <line num="2" count="3" type="stmt"/>
         <line num="3" count="3" type="stmt"/>
         <line num="5" count="3" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="9" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="10" count="0" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="9" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="16" type="stmt"/>
         <line num="12" count="0" type="stmt"/>
       </file>
       <file name="errorHandlerMiddlewares.ts" path="/home/gabriel/Área de Trabalho/Driven Projects - Back/projeto19-drivenpass/src/middlewares/errorHandlerMiddlewares.ts">
-        <metrics statements="6" coveredstatements="2" conditionals="1" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="6" coveredstatements="5" conditionals="1" coveredconditionals="1" methods="1" coveredmethods="1"/>
         <line num="2" count="3" type="stmt"/>
         <line num="8" count="3" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="10" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="11" count="0" type="stmt"/>
+        <line num="9" count="3" type="stmt"/>
+        <line num="10" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="11" count="3" type="stmt"/>
         <line num="13" count="0" type="stmt"/>
       </file>
       <file name="userMiddleware.ts" path="/home/gabriel/Área de Trabalho/Driven Projects - Back/projeto19-drivenpass/src/middlewares/userMiddleware.ts">
-        <metrics statements="8" coveredstatements="3" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <metrics statements="8" coveredstatements="8" conditionals="1" coveredconditionals="1" methods="2" coveredmethods="2"/>
         <line num="2" count="3" type="stmt"/>
         <line num="3" count="3" type="stmt"/>
         <line num="5" count="3" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="9" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="12" count="0" type="stmt"/>
+        <line num="6" count="4" type="stmt"/>
+        <line num="7" count="4" type="stmt"/>
+        <line num="9" count="4" type="cond" truecount="1" falsecount="0"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="12" count="2" type="stmt"/>
       </file>
     </package>
     <package name="src.repositories.credentialRepository">
@@ -135,12 +134,12 @@
       </file>
     </package>
     <package name="src.repositories.userRepository">
-      <metrics statements="5" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="index.ts" path="/home/gabriel/Área de Trabalho/Driven Projects - Back/projeto19-drivenpass/src/repositories/userRepository/index.ts">
-        <metrics statements="5" coveredstatements="3" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <metrics statements="5" coveredstatements="5" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="3" type="stmt"/>
-        <line num="6" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
+        <line num="6" count="5" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
         <line num="22" count="3" type="stmt"/>
         <line num="27" count="3" type="stmt"/>
       </file>
@@ -204,21 +203,21 @@
       </file>
     </package>
     <package name="src.services.authServices">
-      <metrics statements="14" coveredstatements="6" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+      <metrics statements="14" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
       <file name="index.ts" path="/home/gabriel/Área de Trabalho/Driven Projects - Back/projeto19-drivenpass/src/services/authServices/index.ts">
-        <metrics statements="14" coveredstatements="6" conditionals="2" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="14" coveredstatements="14" conditionals="2" coveredconditionals="2" methods="1" coveredmethods="1"/>
         <line num="1" count="3" type="stmt"/>
         <line num="2" count="3" type="stmt"/>
         <line num="3" count="3" type="stmt"/>
         <line num="6" count="3" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
-        <line num="11" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="12" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
-        <line num="16" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="17" count="0" type="stmt"/>
-        <line num="20" count="0" type="stmt"/>
-        <line num="21" count="0" type="stmt"/>
+        <line num="10" count="3" type="stmt"/>
+        <line num="11" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="12" count="1" type="stmt"/>
+        <line num="15" count="2" type="stmt"/>
+        <line num="16" count="2" type="cond" truecount="1" falsecount="0"/>
+        <line num="17" count="1" type="stmt"/>
+        <line num="20" count="1" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
         <line num="25" count="3" type="stmt"/>
         <line num="29" count="3" type="stmt"/>
       </file>
@@ -244,23 +243,23 @@
       </file>
     </package>
     <package name="src.services.userServices">
-      <metrics statements="10" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+      <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
       <file name="index.ts" path="/home/gabriel/Área de Trabalho/Driven Projects - Back/projeto19-drivenpass/src/services/userServices/index.ts">
-        <metrics statements="10" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="0"/>
+        <metrics statements="10" coveredstatements="10" conditionals="0" coveredconditionals="0" methods="2" coveredmethods="2"/>
         <line num="1" count="3" type="stmt"/>
         <line num="4" count="3" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="9" count="0" type="stmt"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="14" count="0" type="stmt"/>
-        <line num="16" count="0" type="stmt"/>
-        <line num="17" count="0" type="stmt"/>
+        <line num="7" count="2" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="13" count="1" type="stmt"/>
+        <line num="14" count="1" type="stmt"/>
+        <line num="16" count="1" type="stmt"/>
+        <line num="17" count="1" type="stmt"/>
         <line num="20" count="3" type="stmt"/>
         <line num="25" count="3" type="stmt"/>
       </file>
     </package>
     <package name="src.utils">
-      <metrics statements="28" coveredstatements="9" conditionals="25" coveredconditionals="0" methods="8" coveredmethods="0"/>
+      <metrics statements="28" coveredstatements="17" conditionals="25" coveredconditionals="2" methods="8" coveredmethods="2"/>
       <file name="authUtils.ts" path="/home/gabriel/Área de Trabalho/Driven Projects - Back/projeto19-drivenpass/src/utils/authUtils.ts">
         <metrics statements="8" coveredstatements="3" conditionals="1" coveredconditionals="0" methods="2" coveredmethods="0"/>
         <line num="1" count="3" type="stmt"/>
@@ -273,17 +272,17 @@
         <line num="15" count="0" type="stmt"/>
       </file>
       <file name="errorUtils.ts" path="/home/gabriel/Área de Trabalho/Driven Projects - Back/projeto19-drivenpass/src/utils/errorUtils.ts">
-        <metrics statements="20" coveredstatements="6" conditionals="24" coveredconditionals="0" methods="6" coveredmethods="0"/>
+        <metrics statements="20" coveredstatements="14" conditionals="24" coveredconditionals="2" methods="6" coveredmethods="2"/>
         <line num="7" count="3" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
+        <line num="8" count="3" type="stmt"/>
         <line num="11" count="3" type="stmt"/>
-        <line num="12" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="13" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="14" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="15" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="16" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="17" count="0" type="cond" truecount="0" falsecount="1"/>
-        <line num="18" count="0" type="cond" truecount="0" falsecount="1"/>
+        <line num="12" count="3" type="cond" truecount="0" falsecount="1"/>
+        <line num="13" count="3" type="cond" truecount="0" falsecount="1"/>
+        <line num="14" count="3" type="cond" truecount="0" falsecount="1"/>
+        <line num="15" count="3" type="cond" truecount="0" falsecount="1"/>
+        <line num="16" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="17" count="2" type="cond" truecount="0" falsecount="1"/>
+        <line num="18" count="2" type="cond" truecount="1" falsecount="0"/>
         <line num="19" count="0" type="cond" truecount="0" falsecount="1"/>
         <line num="20" count="0" type="stmt"/>
         <line num="23" count="3" type="stmt"/>
@@ -297,47 +296,47 @@
       </file>
     </package>
     <package name="tests">
-      <metrics statements="9" coveredstatements="6" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="1"/>
+      <metrics statements="9" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="1"/>
       <file name="helphers.ts" path="/home/gabriel/Área de Trabalho/Driven Projects - Back/projeto19-drivenpass/tests/helphers.ts">
-        <metrics statements="9" coveredstatements="6" conditionals="2" coveredconditionals="0" methods="2" coveredmethods="1"/>
-        <line num="1" count="3" type="stmt"/>
-        <line num="4" count="3" type="stmt"/>
-        <line num="5" count="3" type="stmt"/>
-        <line num="7" count="3" type="stmt"/>
-        <line num="8" count="14" type="stmt"/>
-        <line num="11" count="3" type="stmt"/>
-        <line num="12" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="13" count="0" type="stmt"/>
-        <line num="15" count="0" type="stmt"/>
+        <metrics statements="9" coveredstatements="8" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="1"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="4" count="1" type="stmt"/>
+        <line num="5" count="1" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="0" type="stmt"/>
+        <line num="11" count="1" type="stmt"/>
+        <line num="12" count="3" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="3" type="stmt"/>
+        <line num="15" count="3" type="stmt"/>
       </file>
     </package>
     <package name="tests.factories">
-      <metrics statements="17" coveredstatements="10" conditionals="5" coveredconditionals="0" methods="3" coveredmethods="0"/>
+      <metrics statements="17" coveredstatements="17" conditionals="5" coveredconditionals="5" methods="3" coveredmethods="3"/>
       <file name="authFactory.ts" path="/home/gabriel/Área de Trabalho/Driven Projects - Back/projeto19-drivenpass/tests/factories/authFactory.ts">
-        <metrics statements="4" coveredstatements="2" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="4" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="7" count="1" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
+        <line num="10" count="1" type="stmt"/>
       </file>
       <file name="credentialFactory.ts" path="/home/gabriel/Área de Trabalho/Driven Projects - Back/projeto19-drivenpass/tests/factories/credentialFactory.ts">
-        <metrics statements="6" coveredstatements="4" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="6" coveredstatements="6" conditionals="0" coveredconditionals="0" methods="1" coveredmethods="1"/>
         <line num="1" count="1" type="stmt"/>
         <line num="2" count="1" type="stmt"/>
         <line num="3" count="1" type="stmt"/>
         <line num="6" count="1" type="stmt"/>
-        <line num="7" count="0" type="stmt"/>
-        <line num="8" count="0" type="stmt"/>
+        <line num="7" count="1" type="stmt"/>
+        <line num="8" count="1" type="stmt"/>
       </file>
       <file name="userFactory.ts" path="/home/gabriel/Área de Trabalho/Driven Projects - Back/projeto19-drivenpass/tests/factories/userFactory.ts">
-        <metrics statements="7" coveredstatements="4" conditionals="5" coveredconditionals="0" methods="1" coveredmethods="0"/>
+        <metrics statements="7" coveredstatements="7" conditionals="5" coveredconditionals="5" methods="1" coveredmethods="1"/>
         <line num="1" count="3" type="stmt"/>
         <line num="2" count="3" type="stmt"/>
         <line num="4" count="3" type="stmt"/>
-        <line num="6" count="3" type="cond" truecount="0" falsecount="1"/>
-        <line num="7" count="0" type="cond" truecount="0" falsecount="2"/>
-        <line num="8" count="0" type="stmt"/>
-        <line num="10" count="0" type="stmt"/>
+        <line num="6" count="3" type="cond" truecount="1" falsecount="0"/>
+        <line num="7" count="6" type="cond" truecount="2" falsecount="0"/>
+        <line num="8" count="6" type="stmt"/>
+        <line num="10" count="6" type="stmt"/>
       </file>
     </package>
   </project>

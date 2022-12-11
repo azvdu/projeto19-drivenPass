@@ -3,7 +3,7 @@
 <html lang="en">
 
 <head>
-    <title>Code coverage report for src/services/authServices/index.ts</title>
+    <title>Code coverage report for src/services/credentialServices/index.ts</title>
     <meta charset="utf-8" />
     <link rel="stylesheet" href="../../../prettify.css" />
     <link rel="stylesheet" href="../../../base.css" />
@@ -19,20 +19,20 @@
 <body>
 <div class='wrapper'>
     <div class='pad1'>
-        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/services/authServices</a> index.ts</h1>
+        <h1><a href="../../../index.html">All files</a> / <a href="index.html">src/services/credentialServices</a> index.ts</h1>
         <div class='clearfix'>
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">42.85% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Statements</span>
-                <span class='fraction'>6/14</span>
+                <span class='fraction'>7/14</span>
             </div>
         
             
             <div class='fl pad1y space-right2'>
                 <span class="strong">0% </span>
                 <span class="quiet">Branches</span>
-                <span class='fraction'>0/2</span>
+                <span class='fraction'>0/1</span>
             </div>
         
             
@@ -44,9 +44,9 @@
         
             
             <div class='fl pad1y space-right2'>
-                <span class="strong">42.85% </span>
+                <span class="strong">50% </span>
                 <span class="quiet">Lines</span>
-                <span class='fraction'>6/14</span>
+                <span class='fraction'>7/14</span>
             </div>
         
             
@@ -61,7 +61,7 @@
             </div>
         </template>
     </div>
-    <div class='status-line low'></div>
+    <div class='status-line medium'></div>
     <pre><table class="coverage">
 <tr><td class="line-count quiet"><a name='L1'></a><a href='#L1'>1</a>
 <a name='L2'></a><a href='#L2'>2</a>
@@ -91,63 +91,66 @@
 <a name='L26'></a><a href='#L26'>26</a>
 <a name='L27'></a><a href='#L27'>27</a>
 <a name='L28'></a><a href='#L28'>28</a>
-<a name='L29'></a><a href='#L29'>29</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
+<a name='L29'></a><a href='#L29'>29</a>
+<a name='L30'></a><a href='#L30'>30</a></td><td class="line-coverage quiet"><span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-no">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-yes">3x</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
 <span class="cline-any cline-neutral">&nbsp;</span>
-<span class="cline-any cline-yes">3x</span></td><td class="text"><pre class="prettyprint lang-js">import bcrypt from "bcrypt";
-import httpStatus from "http-status";
-import jwt from "jsonwebtoken";
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-no">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-neutral">&nbsp;</span>
+<span class="cline-any cline-yes">3x</span></td><td class="text"><pre class="prettyprint lang-js">import httpStatus from "http-status";
+import Cryptr from "cryptr";
+const cryptr = new Cryptr(process.env.CRYPTR_PASSWORD);
 &nbsp;
-import { CreateUserType } from "../../controllers/userController.js";
-import userReposity from "../../repositories/userRepository/index.js";
+import { verifyToken } from "../../utils/authUtils.js";
+import { CreateCredentialData } from "../../controllers/credentialController.js";
+import credentialRepository from "../../repositories/credentialRepository/index.js";
 &nbsp;
+async function <span class="fstat-no" title="function not covered" >createCredential(</span>createCredential: CreateCredentialData, token: string){
+    const authorization = <span class="cstat-no" title="statement not covered" >await verifyToken(token)</span>
 &nbsp;
-async function <span class="fstat-no" title="function not covered" >signIn(</span>user: CreateUserType){
-    const userData = <span class="cstat-no" title="statement not covered" >await userReposity.findUserByEmail(user)</span>
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if(!userData){</span>
-<span class="cstat-no" title="statement not covered" >        throw{type: httpStatus.UNAUTHORIZED, message: "invalid email"}</span>
+    const title = <span class="cstat-no" title="statement not covered" >await credentialRepository.findTitle(createCredential, authorization.userId)</span>
+<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if(title){</span>
+<span class="cstat-no" title="statement not covered" >        throw{type: httpStatus.CONFLICT, message: "this title has already been assigned to another credential"}</span>
     }
 &nbsp;
-    const auth = <span class="cstat-no" title="statement not covered" >bcrypt.compareSync(user.password, userData.password);</span>
-<span class="cstat-no" title="statement not covered" >    <span class="missing-if-branch" title="if path not taken" >I</span>if(!auth){</span>
-<span class="cstat-no" title="statement not covered" >        throw{type: httpStatus.UNAUTHORIZED, message: "incorrect password"}</span>
-    }
-    
-    const token = <span class="cstat-no" title="statement not covered" >jwt.sign({userId: userData.id}, process.env.JWT_SECRET);</span>
-<span class="cstat-no" title="statement not covered" >    return token;</span>
+    const encrypt = <span class="cstat-no" title="statement not covered" >cryptr.encrypt(createCredential.password);</span>
+&nbsp;
+    const create = <span class="cstat-no" title="statement not covered" >await credentialRepository.create(createCredential, encrypt , authorization.userId)</span>
+&nbsp;
+<span class="cstat-no" title="statement not covered" >    return create;</span>
+&nbsp;
 }
 &nbsp;
 &nbsp;
-const authServices = {
-    signIn
-};
+const credentialServices = {
+    createCredential
+}
 &nbsp;
-export default authServices;</pre></td></tr></table></pre>
+export default credentialServices;</pre></td></tr></table></pre>
 
                 <div class='push'></div><!-- for sticky footer -->
             </div><!-- /wrapper -->

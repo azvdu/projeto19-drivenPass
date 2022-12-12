@@ -38,11 +38,20 @@ async function findCredentialById(id: number){
     })
 }
 
+async function deleteCredential(id: number){
+    return prisma.credentials.delete({
+        where:{
+            id
+        }
+    })
+}
+
 const credentialRepository = {
     findTitle,
     create,
     findCrendentialsByUserId,
-    findCredentialById
+    findCredentialById,
+    deleteCredential
 }
 
 

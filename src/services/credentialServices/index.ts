@@ -44,14 +44,35 @@ async function getCredentialsById(token: string, id: number){
     if(authorization.userId !== findCredentialById.userId){
         throw{type: httpStatus.UNAUTHORIZED, message: "this credential does not belong to this user"}
     }
-    
+
     return findCredentialById
 }
+
+
+async function deleteCredential(id: number, token: string){
+    const authorization = await verifyToken(token)
+    
+    const findCredentialById = await credentialRepository.findCredentialById(id)
+    
+    if(!findCredentialById){
+        throw{type: httpStatus.BAD_REQUEST, message: "this credential does not exist"}
+    }
+
+    if(findCredentialById.userId !== authorization.userId){
+        throw{type: httpStatus.UNAUTHORIZED, message: "this credential belongs to another user"}
+    }
+
+    const deleteCredential = await credentialRepository.deleteCredential(id)
+
+    return deleteCredential;
+}
+
 
 const credentialServices = {
     createCredential,
     getCredentials,
-    getCredentialsById
+    getCredentialsById,
+    deleteCredential
 }
 
 export default credentialServices;

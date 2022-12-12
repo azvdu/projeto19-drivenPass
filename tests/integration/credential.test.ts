@@ -135,7 +135,7 @@ describe("GET /credentials", () => {
         expect(result.status).toEqual(httpStatus.UNAUTHORIZED);
     });
 
-    it("should return with status 200, with credentialId", async () => {
+    it("should return with status 200 when have a credentialId", async () => {
         const token = await generateValidToken()
         const title = faker.lorem.word()
         const credential = await createCredential(token, title)
@@ -152,4 +152,67 @@ describe("GET /credentials", () => {
 
         expect(result.status).toEqual(httpStatus.OK)
     });
+});
+
+describe("DELETE /credentials", () => {
+    it("should return with status 401 when token is not given", async () => {
+        const token = await generateValidToken()
+        const title = faker.lorem.word()
+        const credential = await createCredential(token, title)
+
+        const result = await server.delete(`/credentials?credentialId=${credential.id}`)
+
+        expect(result.status).toEqual(httpStatus.UNAUTHORIZED);
+    });
+
+    it("should return with status 401 when token is invalid", async () => {
+        const token = await generateValidToken()
+        const token2 = faker.lorem.word();
+        const title = faker.lorem.word()
+        const credential = await createCredential(token, title)
+
+        const result = await server.delete(`/credentials?credentialId=${credential.id}`).set("authorization", `Bearer ${token2}`)
+
+        expect(result.status).toEqual(httpStatus.UNAUTHORIZED);
+    });
+
+    it("should return with status 400 when credentialId is not given", async () => {
+        const token = await generateValidToken()
+
+        const result = await server.delete("/credentials").set("authorization", `Bearer ${token}`)
+
+        expect(result.status).toEqual(httpStatus.BAD_REQUEST)
+    })
+
+    it("should return with status 400 when credentialId does not exist", async () => {
+        const token = await generateValidToken()
+        const title = faker.lorem.word()
+        const fakeId = faker.datatype.number()
+        await createCredential(token, title)
+
+        const result = await server.delete(`/credentials?credentialId=${fakeId}`).set("authorization", `Bearer ${token}`)
+
+        expect(result.status).toEqual(httpStatus.BAD_REQUEST);
+    });
+
+    it("should return with status 401 when the credential does not belong to the user", async () => {
+        const token = await generateValidToken()
+        const token2 = await generateValidToken()
+        const title = faker.lorem.word()
+        const credential = await createCredential(token, title)
+
+        const result = await server.delete(`/credentials?credentialId=${credential.id}`).set("authorization", `Bearer ${token2}`)
+
+        expect(result.status).toEqual(httpStatus.UNAUTHORIZED);
+    });
+
+    it("should return with status 200", async () => {
+        const token = await generateValidToken()
+        const title = faker.lorem.word()
+        const credential = await createCredential(token, title)
+
+        const result = await server.delete(`/credentials?credentialId=${credential.id}`).set("authorization", `Bearer ${token}`)
+
+        expect(result.status).toEqual(httpStatus.OK)
+    })
 })

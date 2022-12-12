@@ -32,3 +32,18 @@ export async function getCredential(req: Request, res: Response){
 
     return res.status(httpStatus.OK).send(getCredentialId)
 }
+
+
+export async function deleteCredential(req: Request, res: Response){
+    const { authorization } = req.headers;
+    const token: string = authorization?.replace("Bearer ", "");
+    const credentialId = req.query.credentialId;
+
+    if(credentialId === undefined || !credentialId || credentialId === null){
+        return res.sendStatus(httpStatus.BAD_REQUEST)
+    }
+
+    const deleteCredential = await credentialServices.deleteCredential(Number(credentialId), token)
+
+    return res.status(httpStatus.OK).send(deleteCredential)
+}

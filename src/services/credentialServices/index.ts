@@ -27,8 +27,12 @@ async function getCredentials(token: string) {
     const authorization = await verifyToken(token)
 
     const findCrendentialsByUserId = await credentialRepository.findCrendentialsByUserId(authorization.userId)
+    
+    const credentialDecrypt = findCrendentialsByUserId.map((credential) => ({
+        ... credential, password: cryptr.decrypt(credential.password)
+    }))
 
-    return findCrendentialsByUserId;
+    return credentialDecrypt;
 }
 
 
@@ -45,6 +49,7 @@ async function getCredentialsById(token: string, id: number){
         throw{type: httpStatus.UNAUTHORIZED, message: "this credential does not belong to this user"}
     }
 
+    // return {... findCredentialById, password: cryptr.decrypt(findCredentialById.password)};
     return findCredentialById
 }
 

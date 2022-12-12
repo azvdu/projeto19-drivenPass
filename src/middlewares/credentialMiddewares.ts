@@ -1,6 +1,6 @@
 import { NextFunction, Request, Response } from "express";
 import httpStatus from "http-status";
-import { credentialSchema } from "../schemas/credentialSchema.js";
+import { credentialSchema } from "../schemas/credentialSchemas.js";
 
 export async function validationCredential(req: Request, res: Response, next: NextFunction){
     const credential = req.body;

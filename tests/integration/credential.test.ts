@@ -2,8 +2,6 @@ import supertest from "supertest";
 import httpStatus from "http-status";
 import { faker } from "@faker-js/faker";
 import app, { init, close } from "../../src/app.js";
-import { CreateUserType } from "./user.test.js";
-import { createUser } from "../factories/userFactory.js";
 import { cleanDb, generateValidToken } from "../helphers.js";
 import { createCredential } from "../factories/credentialFactory.js";
 
@@ -16,7 +14,7 @@ beforeAll(async () => {
 // });
 
 afterAll(async () => {
-    await close()
+    await close();
 })
 
 const server = supertest(app);
@@ -95,7 +93,7 @@ describe("POST /credentials", () => {
         const result = await server.post("/credentials").set("authorization", `Bearer ${token}`).send(body)
 
         expect(result.status).toEqual(httpStatus.CREATED)
-    })
+    });
 })
 
 describe("GET /credentials", () => {

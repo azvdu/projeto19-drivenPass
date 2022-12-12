@@ -1,6 +1,6 @@
 import { Router } from "express";
 import { validationCredential } from "../middlewares/credentialMiddewares.js";
-import { createCredential, deleteCredential, getCredential } from "../controllers/credentialController.js";
+import { createCredential, deleteCredential, getCredential } from "../controllers/index.js";
 
 
 const credentialRouters = Router();

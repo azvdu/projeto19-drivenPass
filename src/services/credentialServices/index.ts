@@ -23,8 +23,35 @@ async function createCredential(createCredential: CreateCredentialData, token: s
 }
 
 
+async function getCredentials(token: string) {
+    const authorization = await verifyToken(token)
+
+    const findCrendentialsByUserId = await credentialRepository.findCrendentialsByUserId(authorization.userId)
+
+    return findCrendentialsByUserId;
+}
+
+
+async function getCredentialsById(token: string, id: number){
+    const authorization = await verifyToken(token)
+
+    const findCredentialById = await credentialRepository.findCredentialById(id)
+
+    if(!findCredentialById){
+        throw{type: httpStatus.BAD_REQUEST, message: "this credential does not exists"}
+    }
+
+    if(authorization.userId !== findCredentialById.userId){
+        throw{type: httpStatus.UNAUTHORIZED, message: "this credential does not belong to this user"}
+    }
+    
+    return findCredentialById
+}
+
 const credentialServices = {
-    createCredential
+    createCredential,
+    getCredentials,
+    getCredentialsById
 }
 
 export default credentialServices;

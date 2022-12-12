@@ -11,7 +11,6 @@ async function findTitle({ title }: CreateCredentialData, userId: number){
 }
 
 async function create({ title, url, username }: CreateCredentialData, password: string, userId: number){
-    console.log(password)
     return prisma.credentials.create({
         data: {
             title,
@@ -23,10 +22,27 @@ async function create({ title, url, username }: CreateCredentialData, password: 
     })
 }
 
+async function findCrendentialsByUserId(userId: number){
+    return prisma.credentials.findMany({
+        where: {
+            userId
+        }
+    })
+}
+
+async function findCredentialById(id: number){
+    return prisma.credentials.findFirst({
+        where:{
+            id
+        }
+    })
+}
 
 const credentialRepository = {
     findTitle,
-    create
+    create,
+    findCrendentialsByUserId,
+    findCredentialById
 }
 
 

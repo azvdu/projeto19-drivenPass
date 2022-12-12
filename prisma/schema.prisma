@@ -35,6 +35,7 @@ model Credentials {
   createdAt       DateTime     @default(now())
   updatedAt       DateTime     @updatedAt
 
+  @@unique([userId, title])
   @@map("credentials")
 }
 
@@ -48,5 +49,6 @@ model Networks {
   createdAt       DateTime     @default(now())
   updatedAt       DateTime     @updatedAt
 
+  @@unique([userId, title])
   @@map("networks")
 }

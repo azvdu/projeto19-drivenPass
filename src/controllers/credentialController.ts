@@ -8,7 +8,7 @@ export type CreateCredentialData = Omit <Credentials, "id" | "userId" | "created
 
 export async function createCredential(req: Request, res: Response){
     const { authorization } = req.headers;
-    const token: string = authorization?.replace("Bearer", "");
+    const token: string = authorization?.replace("Bearer ", "");
     const credential: CreateCredentialData = req.body; 
 
     const createCredential = await credentialServices.createCredential(credential, token);
@@ -19,10 +19,16 @@ export async function createCredential(req: Request, res: Response){
 
 export async function getCredential(req: Request, res: Response){
     const { authorization } = req.headers;
-    const token: string = authorization?.replace("Bearer", "");
-    const userId = req.query.id;
+    const token: string = authorization?.replace("Bearer ", "");
+    const credentialId = req.query.credentialId;
 
-    if(!userId){
-        // const credential = 
+    if(credentialId === undefined || !credentialId || credentialId === null){
+        const getCredential = await credentialServices.getCredentials(token)
+
+        return res.status(httpStatus.OK).send(getCredential)
     }
+
+    const getCredentialId = await credentialServices.getCredentialsById(token, Number(credentialId))
+
+    return res.status(httpStatus.OK).send(getCredentialId)
 }

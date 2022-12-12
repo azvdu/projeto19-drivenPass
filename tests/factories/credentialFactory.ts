@@ -12,7 +12,6 @@ export async function createCredential(token: string, title: string){
             url: faker.internet.url(),
             username: faker.internet.userName(),
             password: faker.internet.password(),
-
         }
     })
 }

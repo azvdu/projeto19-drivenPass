@@ -45,10 +45,30 @@ async function getNetworksById(token: string, id: number){
 }
 
 
+async function deleteNetwork(id: number, token: string){
+    const authorization = await verifyToken(token);
+
+    const findNetworksById = await networkReposiory.findNetworksById(id);
+
+    if(!findNetworksById){
+        throw{type: httpStatus.BAD_REQUEST, message: "this network does not exist"}
+    }
+
+    if(findNetworksById .userId !== authorization.userId){
+        throw{type: httpStatus.UNAUTHORIZED, message: "this network belongs to another user"}
+    }
+
+    const deleteNetwork = await networkReposiory.deleteNetwork(id);
+    
+    return deleteNetwork;
+}
+
+
 const networksServices = {
     createNetwork,
     getNetworks,
-    getNetworksById
+    getNetworksById,
+    deleteNetwork
 }
 
 export default networksServices;

@@ -30,5 +30,18 @@ export async function getNetworks(req: Request, res: Response){
     const getNetworkId = await networksServices.getNetworksById(token, Number(networkId))
 
     return res.status(httpStatus.OK).send(getNetworkId)
+}
 
+export async function deleteNetwork(req: Request, res: Response){
+    const { authorization } = req.headers;
+    const token: string = authorization?.replace("Bearer ", "");
+    const networkId = req.query.networkId;
+
+    if(networkId === undefined || !networkId || networkId === null){
+        return res.sendStatus(httpStatus.BAD_REQUEST)
+    }
+
+    const deleteNetwork = await networksServices.deleteNetwork(Number(networkId), token);
+
+    return res.status(httpStatus.OK).send(deleteNetwork);
 }

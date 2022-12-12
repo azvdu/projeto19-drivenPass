@@ -103,9 +103,9 @@ describe("GET /networks", () => {
         const token = await generateValidToken()
         const token2 = await generateValidToken()
         const title = faker.lorem.word()
-        const credential = await createNetwork(token, title)
+        const network = await createNetwork(token, title)
 
-        const result = await server.get(`/networks?networkId=${credential.id}`).set("authorization", `Bearer ${token2}`)
+        const result = await server.get(`/networks?networkId=${network.id}`).set("authorization", `Bearer ${token2}`)
 
         expect(result.status).toEqual(httpStatus.UNAUTHORIZED);
     });
@@ -113,9 +113,9 @@ describe("GET /networks", () => {
     it("should return with status 200 when have a networkId", async () => {
         const token = await generateValidToken()
         const title = faker.lorem.word()
-        const credential = await createNetwork(token, title)
+        const network = await createNetwork(token, title)
 
-        const result = await server.get(`/networks?networkId=${credential.id}`).set("authorization", `Bearer ${token}`)
+        const result = await server.get(`/networks?networkId=${network.id}`).set("authorization", `Bearer ${token}`)
 
         expect(result.status).toEqual(httpStatus.OK)
     });
@@ -127,4 +127,67 @@ describe("GET /networks", () => {
 
         expect(result.status).toEqual(httpStatus.OK)
     });
-})
+});
+
+describe("DELETE /networks", () => {
+    it("should return with status 401 when token is not given", async () => {
+        const token = await generateValidToken()
+        const title = faker.lorem.word()
+        const network = await createNetwork(token, title)
+
+        const result = await server.delete(`/networks?networkId=${network.id}`)
+
+        expect(result.status).toEqual(httpStatus.UNAUTHORIZED);
+    });
+
+    it("should return with status 401 when token is invalid", async () => {
+        const token = await generateValidToken()
+        const token2 = faker.lorem.word();
+        const title = faker.lorem.word()
+        const network = await createNetwork(token, title)
+
+        const result = await server.delete(`/networks?networkId=${network.id}`).set("authorization", `Bearer ${token2}`)
+
+        expect(result.status).toEqual(httpStatus.UNAUTHORIZED);
+    });
+
+    it("should return with status 400 when networkId is not given", async () => {
+        const token = await generateValidToken()
+
+        const result = await server.delete("/networks").set("authorization", `Bearer ${token}`)
+
+        expect(result.status).toEqual(httpStatus.BAD_REQUEST)
+    });
+
+    it("should return with status 400 when networkId does not exist", async () => {
+        const token = await generateValidToken()
+        const title = faker.lorem.word()
+        const fakeId = faker.datatype.number()
+        await createNetwork(token, title)
+
+        const result = await server.delete(`/networks?networkId=${fakeId}`).set("authorization", `Bearer ${token}`)
+
+        expect(result.status).toEqual(httpStatus.BAD_REQUEST);
+    });
+
+    it("should return with status 401 when the network does not belong to the user", async () => {
+        const token = await generateValidToken()
+        const token2 = await generateValidToken()
+        const title = faker.lorem.word()
+        const network = await createNetwork(token, title)
+
+        const result = await server.delete(`/networks?networkId=${network.id}`).set("authorization", `Bearer ${token2}`)
+
+        expect(result.status).toEqual(httpStatus.UNAUTHORIZED);
+    });
+
+    it("should return with status 200", async () => {
+        const token = await generateValidToken()
+        const title = faker.lorem.word()
+        const network = await createNetwork(token, title)
+
+        const result = await server.delete(`/networks?networkId=${network.id}`).set("authorization", `Bearer ${token}`)
+
+        expect(result.status).toEqual(httpStatus.OK)
+    });
+});

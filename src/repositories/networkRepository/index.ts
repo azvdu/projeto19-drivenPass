@@ -29,11 +29,20 @@ async function findNetworksById(id: number){
     })
 }
 
+async function deleteNetwork(id: number){
+    return prisma.networks.delete({
+        where:{
+            id
+        }
+    })
+}
+
 
 const networkReposiory = {
     createNetwork,
     findNetworksByuserId,
-    findNetworksById
+    findNetworksById,
+    deleteNetwork
 }
 
 export default networkReposiory;

@@ -180,7 +180,7 @@ describe("DELETE /credentials", () => {
         const result = await server.delete("/credentials").set("authorization", `Bearer ${token}`)
 
         expect(result.status).toEqual(httpStatus.BAD_REQUEST)
-    })
+    });
 
     it("should return with status 400 when credentialId does not exist", async () => {
         const token = await generateValidToken()
@@ -212,5 +212,5 @@ describe("DELETE /credentials", () => {
         const result = await server.delete(`/credentials?credentialId=${credential.id}`).set("authorization", `Bearer ${token}`)
 
         expect(result.status).toEqual(httpStatus.OK)
-    })
-})
+    });
+});

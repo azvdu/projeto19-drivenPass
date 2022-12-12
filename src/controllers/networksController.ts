@@ -15,3 +15,20 @@ export async function createNetwork(req: Request, res: Response){
 
     return res.status(httpStatus.CREATED).send(createNetwork);
 }
+
+export async function getNetworks(req: Request, res: Response){
+    const { authorization } = req.headers;
+    const token: string = authorization?.replace("Bearer ", "");
+    const networkId = req.query.networkId;
+
+    if(networkId === undefined || !networkId || networkId === null){
+        const getNetworksId = await networksServices.getNetworks(token)
+
+        return res.status(httpStatus.OK).send(getNetworksId)
+    }
+
+    const getNetworkId = await networksServices.getNetworksById(token, Number(networkId))
+
+    return res.status(httpStatus.OK).send(getNetworkId)
+
+}

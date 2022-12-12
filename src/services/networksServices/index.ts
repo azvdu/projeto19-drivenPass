@@ -16,9 +16,39 @@ async function createNetwork(network:  createNetworkData, token: string){
     return create;
 }
 
+async function getNetworks(token: string){
+    const authorization = await verifyToken(token);
+
+    const findNetworksByuserId = await networkReposiory.findNetworksByuserId(authorization.userId);
+
+    const networkDecrypt = findNetworksByuserId.map((network) => ({
+        ...network, password: cryptr.decrypt(network.password)
+    }))
+
+    return networkDecrypt;
+}
+
+async function getNetworksById(token: string, id: number){
+    const authorization = await verifyToken(token)
+
+    const findNetworksById = await networkReposiory.findNetworksById(id)
+
+    if(!findNetworksById){
+        throw{type: httpStatus.BAD_REQUEST, message: "this network does not exist"}
+    }
+
+    if(authorization.userId !== findNetworksById.userId){
+        throw{type: httpStatus.UNAUTHORIZED, message: "this network does not belong to this user"}
+    }
+
+    return findNetworksById;
+}
+
 
 const networksServices = {
-    createNetwork
+    createNetwork,
+    getNetworks,
+    getNetworksById
 }
 
 export default networksServices;

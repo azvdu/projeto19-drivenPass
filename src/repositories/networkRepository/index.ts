@@ -13,9 +13,27 @@ async function createNetwork({title, network}: createNetworkData, password: stri
     })
 }
 
+async function findNetworksByuserId(userId: number){
+    return prisma.networks.findMany({
+        where:{
+            userId,
+        }
+    })
+}
+
+async function findNetworksById(id: number){
+    return prisma.networks.findFirst({
+        where:{
+            id,
+        }
+    })
+}
+
 
 const networkReposiory = {
-    createNetwork
+    createNetwork,
+    findNetworksByuserId,
+    findNetworksById
 }
 
 export default networkReposiory;

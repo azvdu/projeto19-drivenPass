@@ -18,7 +18,7 @@ async function createCredential(createCredential: CreateCredentialData, token: s
 
     const create = await credentialRepository.create(createCredential, encrypt , authorization.userId)
 
-    return create;
+    return {... create, password: cryptr.decrypt(create.password)};
 
 }
 
@@ -49,7 +49,9 @@ async function getCredentialsById(token: string, id: number){
         throw{type: httpStatus.UNAUTHORIZED, message: "this credential does not belong to this user"}
     }
     
-    return {... findCredentialById, password: cryptr.decrypt(findCredentialById.password)};
+    const decryptedPassword = cryptr.decrypt(findCredentialById.password)
+
+    return {... findCredentialById, password: decryptedPassword};
 }
 
 
@@ -68,7 +70,7 @@ async function deleteCredential(id: number, token: string){
 
     const deleteCredential = await credentialRepository.deleteCredential(id)
 
-    return deleteCredential;
+    return {... deleteCredential, password: cryptr.decrypt(deleteCredential.password)};
 }
 
 

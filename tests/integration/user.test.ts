@@ -1,5 +1,4 @@
 import app, { init, close } from "../../src/app.js";
-import { prisma } from "../../src/config/db.js";
 import { Users } from "@prisma/client";
 import { faker } from "@faker-js/faker";
 import httpStatus from "http-status";
@@ -11,15 +10,13 @@ export type CreateUserType = Omit<Users, "id" | "createdAt" | "updatedAt">
 
 beforeAll(async () => {
     await init();
+    await cleanDb();    
 })
-
-// beforeEach(async () => {
-//     await cleanDb();
-// })
 
 afterAll(async () => {
-    await close()
-})
+    await close();
+});
+
 
 const server = supertest(app)
 

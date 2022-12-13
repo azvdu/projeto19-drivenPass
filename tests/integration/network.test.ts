@@ -7,11 +7,12 @@ import { createNetwork } from "../factories/networkFactory.js";
 
 beforeAll(async () => {
     await init();
+    await cleanDb();
 });
 
 afterAll(async () => {
     await close();
-})
+});
 
 const server = supertest(app);
 

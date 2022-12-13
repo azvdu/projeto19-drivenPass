@@ -5,7 +5,9 @@ import { createUser } from "./factories/userFactory.js";
 import { prisma } from "../src/config/db.js";
 
 export async function cleanDb(){
-    await prisma.$executeRaw`TRUNCATE TABLE 'Users'`
+    await prisma.credentials.deleteMany({});
+    await prisma.networks.deleteMany({});
+    await prisma.users.deleteMany({});
 }
 
 export async function generateValidToken(user?: Users){

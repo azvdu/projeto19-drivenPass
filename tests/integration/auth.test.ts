@@ -8,15 +8,13 @@ import { CreateUserType } from "../integration/user.test.js";
 
 beforeAll(async () => {
     await init();
+    await cleanDb();
 });
 
-// beforeEach(async () => {
-//     await cleanDb();
-// });
-
 afterAll(async () => {
-    await close()
-})
+    await close();
+});
+
 
 const server = supertest(app);
 

@@ -13,7 +13,7 @@ async function createNetwork(network:  createNetworkData, token: string){
 
     const create = await networkReposiory.createNetwork(network, encrypt, authorization.userId)
 
-    return create;
+    return {... create, password: cryptr.decrypt(create.password)};
 }
 
 async function getNetworks(token: string){
@@ -41,7 +41,9 @@ async function getNetworksById(token: string, id: number){
         throw{type: httpStatus.UNAUTHORIZED, message: "this network does not belong to this user"}
     }
 
-    return findNetworksById;
+    const decryptedPassword = cryptr.decrypt(findNetworksById.password)
+
+    return {... findNetworksById, password:decryptedPassword};
 }
 
 
@@ -60,7 +62,7 @@ async function deleteNetwork(id: number, token: string){
 
     const deleteNetwork = await networkReposiory.deleteNetwork(id);
     
-    return deleteNetwork;
+    return {... deleteNetwork, password: cryptr.decrypt(deleteNetwork.password)};
 }
 
 

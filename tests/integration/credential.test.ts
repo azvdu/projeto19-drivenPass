@@ -7,15 +7,12 @@ import { createCredential } from "../factories/credentialFactory.js";
 
 beforeAll(async () => {
     await init();
+    await cleanDb();
 });
-
-// beforeEach(async () => {
-//     await cleanDb();
-// });
 
 afterAll(async () => {
     await close();
-})
+});
 
 const server = supertest(app);
 

@@ -40,17 +40,16 @@ async function getCredentialsById(token: string, id: number){
     const authorization = await verifyToken(token)
 
     const findCredentialById = await credentialRepository.findCredentialById(id)
-
+    
     if(!findCredentialById){
         throw{type: httpStatus.BAD_REQUEST, message: "this credential does not exists"}
     }
-
+    
     if(authorization.userId !== findCredentialById.userId){
         throw{type: httpStatus.UNAUTHORIZED, message: "this credential does not belong to this user"}
     }
-
-    // return {... findCredentialById, password: cryptr.decrypt(findCredentialById.password)};
-    return findCredentialById
+    
+    return {... findCredentialById, password: cryptr.decrypt(findCredentialById.password)};
 }
 
 

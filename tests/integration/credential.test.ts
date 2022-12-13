@@ -139,7 +139,7 @@ describe("GET /credentials", () => {
         const credential = await createCredential(token, title)
 
         const result = await server.get(`/credentials?credentialId=${credential.id}`).set("authorization", `Bearer ${token}`)
-
+        
         expect(result.status).toEqual(httpStatus.OK)
     });
 
